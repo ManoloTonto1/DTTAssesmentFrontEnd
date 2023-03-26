@@ -3,6 +3,7 @@ import Button from "../components/Button.vue";
 import Navbar from "../components/Navbar.vue";
 import PlusIcon from "../assets/plus_white.png";
 import SearchBar from "../components/SearchBar.vue";
+import FilterButtons from "../components/FilterButtons.vue";
 </script>
 
 <template>
@@ -19,12 +20,7 @@ import SearchBar from "../components/SearchBar.vue";
     <div class="flex-container space-between">
 
         <SearchBar placeholder="Search for a house"/>
-        <Button>
-            <div class="flex-container">
-                <img :src="PlusIcon" alt="plus Symbol">
-                <span>Create New</span>
-            </div>
-        </Button>
+        <FilterButtons/>
     </div>
 </template>
 <style scoped>

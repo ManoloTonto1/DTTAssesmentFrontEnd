@@ -43,16 +43,16 @@ input {
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 18px;
 }
 h2 {
-  font-size: 22px;
+  font-size: 14px;
 }
 h3 {
   font-size: 18px;
 }
 button{
-  font-size: 18px;
+  font-size: 12px;
 }
 
 @media screen and (min-width: 768px) {
@@ -128,5 +128,26 @@ button{
   height: inherit;
   padding-left: 24px;
   padding-right: 24px;
+}
+button {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
+  min-width: 64px;
+  padding: 8px 24px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  transition: all 100ms ease-in-out;
+}
+button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+button:active {
+  opacity: 0.6;
+}
+button:disabled  {
+  box-shadow: none;
+  pointer-events: none;
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 

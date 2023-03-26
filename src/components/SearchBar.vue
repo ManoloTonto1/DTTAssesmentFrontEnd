@@ -45,8 +45,6 @@ input {
     background-color: transparent;
     outline: none;
     color: var(--text-1);
-    font-size: 16px;
-    font-weight: 500;
 }
 
 input::placeholder {

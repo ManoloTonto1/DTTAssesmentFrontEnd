@@ -44,30 +44,3 @@ if (props.color === 'secondary') {
         <slot></slot>
     </button>
 </template>
-
-<style scoped>
-
-button {
-    font-size: large;
-    font-weight: 500;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
-    min-width: 64px;
-    padding: 8px 24px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    transition: all 100ms ease-in-out;
-}
-button:hover {
-    opacity: 0.8;
-    cursor: pointer;
-}
-button:active {
-    opacity: 0.6;
-}
-button:disabled  {
-    box-shadow: none;
-    pointer-events: none;
-    opacity: 0.4;
-    cursor: not-allowed;
-}
-</style>
