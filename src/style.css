@@ -1,0 +1,78 @@
+:root {
+  --primary: #EB5440;
+  --secondary: #4A4B4C;
+  --tertiary: #E8E8E8;
+  --quaternary: #C3c3c3;
+  --bg-1: #F6F6F6;
+  --bg-2: #ffff;
+
+  --text-primary:#000000;
+  --text-secondary: #4A4B4C;
+  --text-hyperlink: #037bc2;
+
+  font-family: 'Monsterrat', 'Open Sans';
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light;
+  color: var(--text-primary);
+  background-color: var(--tertiary);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+.contained-primary {
+  border: none;
+  background-color: var(--primary);
+  color: var(--bg-2);
+}
+.contained-secondary {
+  border: none;
+  background-color: var(--secondary);
+  color: var(--bg-2);
+}
+.outlined-primary {
+  background-color: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+.outlined-secondary {
+  background-color: transparent;
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
+}
+.primary-bg{
+  background-color: var(--primary);
+}
+.secondary-bg {
+  background-color: var(--secondary);
+}
+.tertiary-bg {
+  background-color: var(--tertiary);
+}
+
+
+.main-text {
+  color: var(--tertiary);
+}
+.subtitle-text {
+  color: var(--text-secondary);
+
+}
+.primary-text {
+  color: var(--primary);
+}
+.secondary-text {
+  color: var(--secondary);
+}
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  height: inherit;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+}
