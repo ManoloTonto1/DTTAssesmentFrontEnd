@@ -22,7 +22,7 @@ const props = defineProps({
             <input type="text" :placeholder="props.placeholder" :onchange="onchange">
         </div>
 </template>
-<style>
+<style lang="scss">
 
 .searchbar {
     border: 2px solid transparent;
@@ -35,6 +35,15 @@ const props = defineProps({
     width: 100%;
     max-width: 400px;
     transition: all 100ms ease-in-out;
+
+    &:hover{
+        opacity: 0.9;
+    }
+    &:focus-within .search-icon,
+    &:focus-within{
+        border-color: var(--primary);
+        fill: var(--primary);
+    }
 }
 
 input {
@@ -45,20 +54,11 @@ input {
     background-color: transparent;
     outline: none;
     color: var(--text-1);
-}
-
-input::placeholder {
+    ::placeholder{
     color: var(--secondary);
-}
-.searchbar:hover {
-    opacity: 0.9;
-}
+    }
 
-.searchbar:focus-within .search-icon,.searchbar:focus-within{
-    border-color: var(--primary);
-    fill: var(--primary);
 }
-
 .search-icon {
     transition: all 100ms ease-in-out;
     fill: var(--secondary);

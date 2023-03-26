@@ -1,27 +1,29 @@
-<script lang="ts">
-import { ref } from 'vue';
+<script setup lang="ts">
 
-
-const selected = ref('price')
-export default {
-    setup() {
-        return {
-            selected
-        }
+defineProps({
+    selected : {
+        required: true,
+        type: String,
+        default: 'price'
+    },
+    setSelected : {
+        required: true,
+        type: Function,
     }
-}
+})
+
 </script>
 
 <template>
 <div>
     <button 
-    v-on:click="selected = 'price'"
+    v-on:click="setSelected('price')"
     :disabled="selected === 'price'"
     class="contained-primary">
     Price
     </button>
     <button
-    v-on:click="selected = 'size'"
+    v-on:click="setSelected('size')"
     :disabled="selected === 'size'"
     class="contained-primary">
     Size

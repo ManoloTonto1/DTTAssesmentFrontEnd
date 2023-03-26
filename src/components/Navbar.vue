@@ -1,19 +1,25 @@
 <script setup lang="ts">
-import Button from './Button.vue';
 import logo from '../assets/logo.png';
 import Container from './Container.vue';
-function log() {
-    console.log('nihha')
-}
+import { useRouter } from 'vue-router';
+import { ref, watchEffect } from 'vue';
+const router = useRouter()
+
+const currentPage = ref(router.currentRoute.value.name)
+watchEffect(() => {
+    const currentRoute = router.currentRoute.value.name
+    currentPage.value = currentRoute
+});
+
 </script>
 
 <template>
     <nav>
         <Container>
             <ul>
-                <li><router-link to="/"><img :src="logo" alt="DTT-Logo"></router-link></li>
-                <li><router-link to="houses">Houses</router-link></li>
-                <li><router-link to="about">About</router-link></li>
+                <li><img :src="logo" alt="DTT-Logo"></li>
+                <li :class="currentPage === 'Home'? 'greyed-text': undefined"><router-link to="/">Houses</router-link></li>
+                <li :class="currentPage === 'About'? 'greyed-text': undefined"><router-link to="about">About</router-link></li>
             </ul>
         </Container>
     </nav>
