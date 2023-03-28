@@ -36,13 +36,13 @@ p, input {
   margin: 0;
 }
 h1, h2, h3, h4, h5, h6, button {
-
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
 }
 
-p {
-  font-size: 18px
+p, span {
+  font-size: 18px;
+  color: var(--text-secondary);
 }
 input {
   font-size: 14px;
@@ -132,12 +132,12 @@ button{
 }
 .container {
   margin: 0 auto;
-  max-width: 1536px;
+  max-width: 1200px;
   height: inherit;
   padding-left: 24px;
   padding-right: 24px;
 }
-button {
+.button {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
   min-width: 64px;
   padding: 8px 24px;
@@ -145,17 +145,12 @@ button {
   text-transform: uppercase;
   transition: all 100ms ease-in-out;
 }
-button:hover {
+.button:hover {
   opacity: 0.8;
   cursor: pointer;
 }
-button:active {
+.button:active {
   opacity: 0.6;
 }
-button:disabled  {
-  box-shadow: none;
-  pointer-events: none;
-  opacity: 0.4;
-  cursor: not-allowed;
-}
+
 

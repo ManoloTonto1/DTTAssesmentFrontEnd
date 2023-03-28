@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import logo from '../assets/logo.png';
-import Container from './Container.vue';
+import Container from './MainContainer.vue';
 import { useRouter } from 'vue-router';
 import { ref, watchEffect } from 'vue';
-const router = useRouter()
+const router = useRouter();
 
-const currentPage = ref(router.currentRoute.value.name)
+const currentPage = ref(router.currentRoute.value.name);
 watchEffect(() => {
-    const currentRoute = router.currentRoute.value.name
-    currentPage.value = currentRoute
+	const currentRoute = router.currentRoute.value.name;
+	currentPage.value = currentRoute;
 });
 
 </script>
@@ -17,18 +17,22 @@ watchEffect(() => {
     <nav>
         <Container>
             <ul>
-                <li><img :src="logo" alt="DTT-Logo"></li>
-                <li :class="currentPage === 'Home'? 'greyed-text': undefined"><router-link to="/">Houses</router-link></li>
-                <li :class="currentPage === 'About'? 'greyed-text': undefined"><router-link to="about">About</router-link></li>
+                <li :style="{
+                    paddingLeft: 0
+                }" ><img :src="logo" alt="DTT-Logo"></li>
+                <li :class="currentPage !== 'Home'? 'greyed-text': undefined"><router-link to="/">Houses</router-link></li>
+                <li :class="currentPage !== 'About'? 'greyed-text': undefined"><router-link to="about">About</router-link></li>
             </ul>
         </Container>
     </nav>
 </template>
 
-<style>
+<style lang="scss">
 nav {
+    z-index: 1000;
+    position: fixed;
+    width: 100%;
     background-color: var(--bg-2);
-    width: 100vw;
     height: 64px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
 }
