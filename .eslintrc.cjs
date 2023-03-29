@@ -36,6 +36,9 @@ module.exports = {
 		'semi': [
 			'error',
 			'always'
+		],
+		'vue/component-api-style': ['error',
+			['script-setup', 'composition']
 		]
 	}
 };

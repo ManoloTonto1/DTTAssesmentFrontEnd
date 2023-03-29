@@ -2,6 +2,7 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import Home from './pages/HomePage.vue';
 import About from './pages/AboutPage.vue';
+import Create from './pages/CreatePage.vue';
 import './style.css';
 import { createRouter, createWebHistory } from 'vue-router';
 
@@ -16,6 +17,11 @@ const routes = [
 		name: 'About',
 		component: About
 	},
+	{
+		path: '/create',
+		name: 'Create',
+		component: Create
+	}
 ];
 
 const router = createRouter({

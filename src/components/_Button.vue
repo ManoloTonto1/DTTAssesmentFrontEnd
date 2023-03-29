@@ -2,13 +2,13 @@
 import { ref } from 'vue';
 
 const props = defineProps<{
-	onClick?: (event: MouseEvent) => void;
+	onClick?: (event: MouseEvent) => void
 	color?: 'primary' | 'secondary'
 	variant?: 'contained' | 'outlined';
 	disabled?: boolean;
 }>();
 
-const variant = ref(props.variant || 'contained-');
+const variant = ref(props.variant+'-' || 'contained-');
 const color = ref(props.color || 'primary');
 
 if (props.variant === 'outlined' || props.variant === undefined ) {

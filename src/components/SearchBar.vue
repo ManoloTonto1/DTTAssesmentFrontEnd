@@ -1,17 +1,10 @@
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue';
 
-const props = defineProps({
-	placeholder: {
-		required: false,
-		type: String,
-		default: 'Search',
-	},
-	onchange: {
-		required: false,
-		type: Function,
-	},
-});
+const props = defineProps<{
+    placeholder?: string;
+    onChange?: (value: string) => void;
+}>();
 
 defineEmits(['onchange']);
 const showClearIcon = ref(false);
@@ -22,10 +15,10 @@ watchEffect(() => {
 	} else {
 		showClearIcon.value = false;
 	}
-	if (props.onchange) {
-		props.onchange(inputValue.value);
+	if(props.onChange) {
+		props.onChange(inputValue.value);
 	}
-});
+},{flush: 'post'});
 
 </script>
 <template>
