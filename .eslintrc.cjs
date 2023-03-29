@@ -37,8 +37,5 @@ module.exports = {
 			'error',
 			'always'
 		],
-		'vue/component-api-style': ['error',
-			['script-setup', 'composition']
-		]
 	}
 };

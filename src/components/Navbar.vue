@@ -1,15 +1,10 @@
 <script setup lang="ts">
+import {RouteRecordName } from 'vue-router';
 import logo from '../assets/logo.png';
 import Container from './MainContainer.vue';
-import { useRouter } from 'vue-router';
-import { ref, watchEffect } from 'vue';
-const router = useRouter();
-
-const currentPage = ref(router.currentRoute.value.name);
-watchEffect(() => {
-	const currentRoute = router.currentRoute.value.name;
-	currentPage.value = currentRoute;
-});
+defineProps<{
+    currentPage?: RouteRecordName;
+}>();
 
 </script>
 

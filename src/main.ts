@@ -3,7 +3,7 @@ import App from './App.vue';
 import Home from './pages/HomePage.vue';
 import About from './pages/AboutPage.vue';
 import Create from './pages/CreatePage.vue';
-import './style.css';
+import './styles/style.css';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [

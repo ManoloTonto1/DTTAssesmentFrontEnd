@@ -1,0 +1,41 @@
+label {
+    font-family: 'Montserrat',sans-serif;
+    font-weight: 500;
+}
+.input-container{
+    width: 500px;
+    margin-top: 1rem;
+}
+.dropdown {
+    height: 100%;
+}
+.input-field {
+    height: 30px;
+    border: transparent solid 2px;
+    padding: 0.25rem;
+    padding-left: 0.5rem;
+    display: block;
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-2);
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    transition: all 100ms ease-in-out;
+    select {
+        background-color: transparent;
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border: none;
+    }
+    input {
+        outline: none;
+        border: none;
+    }
+    &:focus-within {
+            border: var(--primary) solid 2px;
+        }
+}
+.small {
+    max-width: 200px;
+}
