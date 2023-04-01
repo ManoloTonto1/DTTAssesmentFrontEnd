@@ -27,7 +27,7 @@ body {
   margin: 0;
   min-height: 100vh;
 }  
-p, input, select, option {
+p, input, select, option,textarea {
   font-family: 'Open Sans', sans-serif;
 }
  h2, h3, h4, h5, h6, p{
@@ -44,7 +44,7 @@ p, span {
   font-size: 18px;
   color: var(--text-secondary);
 }
-input, select, option {
+input, select, option,textarea {
   font-size: 14px;
 }
 
@@ -69,7 +69,7 @@ label{
   p {
     font-size: 18px
   }
-  input, select, option {
+  input, select, option, textarea {
     font-size: 14px;
   }
 
@@ -83,6 +83,7 @@ label{
     font-size: 18px;
   }
   button{
+    overflow: auto;
     font-size: 18px;
   }
   label{
@@ -141,6 +142,7 @@ label{
   margin: 0 auto;
   max-width: 1200px;
   height: inherit;
+  overflow: hidden;
   padding-left: 24px;
   padding-right: 24px;
 }

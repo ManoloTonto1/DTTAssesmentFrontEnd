@@ -7,9 +7,9 @@ defineProps<{
     label?: string;
     startIcon?: string;
     endIcon?: string;
-    defaultValue?: string;
+    modelValue?: string;
 }>();
-
+defineEmits(['update:modelValue']);
 </script>
 <template>
     <div class="input-container">
@@ -17,7 +17,7 @@ defineProps<{
         <label for="input" v-else>{{ label }}</label>
         <div class="dropdown input-field" :class="width === 'small'? 'small': ''">
             <span>{{ startIcon }}</span>
-            <select :value="defaultValue || placeholder" :required="required">
+            <select @input="$emit('update:modelValue', $event.target.value)" :value="modelValue || placeholder" :required="required">
                 <option selected disabled>{{ placeholder }}</option>
                 <slot></slot>
             </select>

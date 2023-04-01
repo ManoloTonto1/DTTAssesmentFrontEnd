@@ -104,8 +104,10 @@ const handleCreateClick = () => {
     </div>
 </template>
 
-<style scoped lang="scss"> .card-container {
-     padding-top: 1rem;
+<style scoped lang="scss"> 
+.card-container {
+    width: 100%;
+    padding-top: 1rem;
  }
 
  .flex-container {
