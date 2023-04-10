@@ -9,17 +9,32 @@ defineProps<{
 </script>
 
 <template>
-    <nav>
-        <Container>
-            <ul>
-                <li :style="{
-                    paddingLeft: 0
-                }" ><img :src="logo" alt="DTT-Logo"></li>
-                <li :class="currentPage !== 'Home'? 'greyed-text': undefined"><router-link to="/">Houses</router-link></li>
-                <li :class="currentPage !== 'About'? 'greyed-text': undefined"><router-link to="about">About</router-link></li>
-            </ul>
-        </Container>
-    </nav>
+  <nav>
+    <Container>
+      <ul>
+        <li
+          :style="{
+            paddingLeft: 0
+          }"
+        >
+          <img
+            :src="logo"
+            alt="DTT-Logo"
+          >
+        </li>
+        <li :class="currentPage !== 'Home'? 'greyed-text': undefined">
+          <router-link to="/">
+            Houses
+          </router-link>
+        </li>
+        <li :class="currentPage !== 'About'? 'greyed-text': undefined">
+          <router-link to="about">
+            About
+          </router-link>
+        </li>
+      </ul>
+    </Container>
+  </nav>
 </template>
 
 <style lang="scss">
@@ -56,4 +71,5 @@ a {
 img {
     height: 100%;
     width: 100px;
-}</style>
+}
+</style>

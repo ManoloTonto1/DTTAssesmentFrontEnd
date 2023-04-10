@@ -10,10 +10,16 @@ const handleGoBack = () => {
 </script>
 
 <template>
-    <button class="flex-container" v-on:click="handleGoBack">
-        <img :src="ArrowBack" alt="arrowBack">
-        Back to overview
-    </button>
+  <button
+    class="flex-container"
+    @click="handleGoBack"
+  >
+    <img
+      :src="ArrowBack"
+      alt="arrowBack"
+    >
+    Back to overview
+  </button>
 </template>
 
 <style lang="scss" scoped>

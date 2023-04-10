@@ -27,7 +27,7 @@ const setSelectedFilter = (filter: string) => {
 	selectedFilter.value = filter;
 };
 onBeforeMount(() => {
-	fetch('https://api.intern.d-tt.nl/api/houses', {
+	fetch('/api', {
 		headers: {
 			'X-Api-Key': import.meta.env.VITE_API_KEY
 		}
@@ -68,40 +68,68 @@ const handleCreateClick = () => {
 </script>
 
 <template>
-    <div class="flex-container space-between">
-        <h1>Houses</h1>
-        <Button variant="contained" color="primary" :on-click="handleCreateClick">
-            <div class="flex-container">
-                <img class="plus-icon" :src="PlusIcon" alt="plus Symbol">
-                <span>Create New</span>
-            </div>
-        </Button>
-    </div>
+  <div class="flex-container space-between">
+    <h1>Houses</h1>
+    <Button
+      variant="contained"
+      color="primary"
+      :on-click="handleCreateClick"
+    >
+      <div class="flex-container">
+        <img
+          class="plus-icon"
+          :src="PlusIcon"
+          alt="plus Symbol"
+        >
+        <span>Create New</span>
+      </div>
+    </Button>
+  </div>
 
-    <div class="flex-container space-between">
-        <SearchBar :on-change="(value) => onchange(value)" placeholder="Search for a house" />
+  <div class="flex-container space-between">
+    <SearchBar
+      :on-change="(value) => onchange(value)"
+      placeholder="Search for a house"
+    />
 
-        <FilterButtons :selected="selectedFilter" :set-selected="setSelectedFilter" />
+    <FilterButtons
+      :selected="selectedFilter"
+      :set-selected="setSelectedFilter"
+    />
+  </div>
+  <h2
+    v-if="isSearching && currentHouses.length"
+    :style="{
+      marginTop: '2rem'
+    }"
+  >
+    {{ currentHouses.length }} results found
+  </h2>
+  <div class="card-container">
+    <div
+      v-for="house in currentHouses"
+      :key="house.id"
+    >
+      <Card :house="house" />
     </div>
-    <h2 v-if="isSearching && currentHouses.length" :style="{
+  </div>
+  <div
+    v-if="currentHouses.length === 0 && !isLoading"
+    class="flex-container center-content"
+  >
+    <img
+      :src="NoResultsImg"
+      alt="No results found image"
+    >
+    <div
+      :style="{
         marginTop: '2rem'
-    }">
-        {{ currentHouses.length }} results found
-    </h2>
-    <div class="card-container">
-        <div v-bind:key="house.id" v-for="house in currentHouses">
-            <Card :house="house" />
-        </div>
+      }"
+    >
+      <p>No results found</p>
+      <p>Please try another keyword</p>
     </div>
-    <div v-if="currentHouses.length === 0 && !isLoading" class="flex-container center-content">
-            <img :src="NoResultsImg" alt="No results found image">
-            <div :style="{
-                marginTop: '2rem'
-            }">
-                <p>No results found</p>
-                <p>Please try another keyword</p>
-            </div>
-    </div>
+  </div>
 </template>
 
 <style scoped lang="scss"> 

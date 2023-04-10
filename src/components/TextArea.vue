@@ -28,19 +28,35 @@ const onBlur = (e: Event) => {
 
 </script>
 <template>
-    <div class="input-container">
-        <label for="input" v-if="required">{{ label }}*</label>
-        <label for="input" v-else>{{ label }}</label>
-        <div class="input-field text-area-base" :class="width === 'small' ? 'small' : ''">
-            <span v-if="startIcon">{{ startIcon }}</span>
-            <textarea :value="modelValue" @input="$emit('update:modelValue', $event.target.value)"
-                v-on:blur="required ? onBlur($event) : undefined" :required="required" :type="type"
-                :placeholder="placeholder">
-            </textarea>
-                <span v-if="endIcon">{{ endIcon }}</span>
-            </div>
-            <span v-if="error" class="error-message"><i>Required field missing.</i></span>
-        </div>
+  <div class="input-container">
+    <label
+      v-if="required"
+      for="input"
+    >{{ label }}*</label>
+    <label
+      v-else
+      for="input"
+    >{{ label }}</label>
+    <div
+      class="input-field text-area-base"
+      :class="width === 'small' ? 'small' : ''"
+    >
+      <span v-if="startIcon">{{ startIcon }}</span>
+      <textarea
+        :value="modelValue"
+        :required="required"
+        :type="type"
+        :placeholder="placeholder"
+        @input="$emit('update:modelValue', $event.target.value)"
+        @blur="required ? onBlur($event) : undefined"
+      />
+      <span v-if="endIcon">{{ endIcon }}</span>
+    </div>
+    <span
+      v-if="error"
+      class="error-message"
+    ><i>Required field missing.</i></span>
+  </div>
 </template>
 
 <style lang="scss" scoped>

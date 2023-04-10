@@ -12,18 +12,36 @@ defineProps<{
 defineEmits(['update:modelValue']);
 </script>
 <template>
-    <div class="input-container">
-        <label for="input" v-if="required">{{ label }}*</label>
-        <label for="input" v-else>{{ label }}</label>
-        <div class="dropdown input-field" :class="width === 'small'? 'small': ''">
-            <span>{{ startIcon }}</span>
-            <select @input="$emit('update:modelValue', $event.target.value)" :value="modelValue || placeholder" :required="required">
-                <option selected disabled>{{ placeholder }}</option>
-                <slot></slot>
-            </select>
-            <span>{{ endIcon }}</span>
-        </div>
+  <div class="input-container">
+    <label
+      v-if="required"
+      for="input"
+    >{{ label }}*</label>
+    <label
+      v-else
+      for="input"
+    >{{ label }}</label>
+    <div
+      class="dropdown input-field"
+      :class="width === 'small'? 'small': ''"
+    >
+      <span>{{ startIcon }}</span>
+      <select
+        :value="modelValue || placeholder"
+        :required="required"
+        @input="$emit('update:modelValue', $event.target.value)"
+      >
+        <option
+          selected
+          disabled
+        >
+          {{ placeholder }}
+        </option>
+        <slot />
+      </select>
+      <span>{{ endIcon }}</span>
     </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>

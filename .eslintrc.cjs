@@ -5,8 +5,9 @@ module.exports = {
 	},
 	'extends': [
 		'eslint:recommended',
-		'plugin:vue/vue3-essential',
-		'plugin:@typescript-eslint/recommended'
+		'plugin:vue/vue3-recommended',
+		'plugin:@typescript-eslint/recommended',
+		'plugin:vue-scoped-css/vue3-recommended'
 	],
 	'overrides': [
 	],

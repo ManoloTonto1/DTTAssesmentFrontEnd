@@ -3,6 +3,7 @@ import App from './App.vue';
 import Home from './pages/HomePage.vue';
 import About from './pages/AboutPage.vue';
 import Create from './pages/CreatePage.vue';
+import EditPage from './pages/EditPage.vue';
 import './styles/style.css';
 import { createRouter, createWebHistory } from 'vue-router';
 
@@ -11,6 +12,11 @@ const routes = [
 		path: '/',
 		name: 'Home',
 		component: Home
+	},
+	{
+		path: '/edit/:id',
+		name: 'Edit',
+		component: EditPage
 	},
 	{
 		path: '/about',

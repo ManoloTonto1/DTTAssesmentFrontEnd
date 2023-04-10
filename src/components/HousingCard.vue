@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { House } from '../types';
 import placeholder from '../assets/placeholder_house.png';
+import EditIcon from '../assets/editIcon.png';
+import TrashIcon from '../assets/trashIcon.png';
 defineProps<{
   house: House;
 }>();
@@ -11,31 +13,59 @@ function FormatPrice(price: number) {
 </script>
 
 <template>
-  <div class="card">
-    <div class="card-img">
-      <img
-        :src="house.image || placeholder"
-        :alt="`image of ${house.location.street}`"
+  <router-link
+    class="card"
+    :to="`${house.id}`"
+  >
+    <div style="display: flex;">
+      <div class="card-img">
+        <img
+          :src="house.image || placeholder"
+          :alt="`image of ${house.location.street}`"
+        >
+      </div>
+      <div class="card-content">
+        <h2>{{ house.location.street }}</h2>
+        <p>€ {{ FormatPrice(house.price) }} </p>
+        <p class="subtitle-text">
+          {{ `${house.location.city}  ${house.location.zip}` }}
+        </p>
+        <p>{{ house.size }} m²</p>
+        <p>{{ house.rooms.bathrooms }} rooms</p>
+      </div>
+    </div>
+    <div class="icon-container"> 
+      <router-link
+        :to="`/edit/${house.id}`"
       >
+        <img
+          class="icon"
+          :src="EditIcon"
+          alt="edit"
+        >
+      </router-link>
+      <button
+        :style="{
+          backgroundColor: 'transparent',
+        }"
+      >
+        <img
+          class="icon"
+          :src="TrashIcon"
+          alt="trash"
+        >
+      </button>
     </div>
-    <div class="card-content">
-      <h2>{{ house.location.street}}</h2>
-      <p>€ {{ FormatPrice(house.price) }} </p>
-      <p class="subtitle-text">
-        {{ `${house.location.city}  ${house.location.zip}` }}
-      </p>
-      <p>{{ house.size }} m²</p>
-      <p>{{ house.rooms.bathrooms }} rooms</p>
-    </div>
-  </div>
+  </router-link>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 .card {
     margin-top: 1rem;
     margin-bottom: 1rem;
     display: flex;
+    justify-content: space-between;
     width: inherit;
     padding: 1rem;
     border-radius: 4px;
@@ -49,7 +79,16 @@ function FormatPrice(price: number) {
     }
 
 }
-
+.icon-container{
+    padding-top: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.icon {
+    height: 24px;
+    width: 24px;
+    padding-left: 1rem;
+}
 .card-img {
     height: 200px;
     width: 200px;

@@ -1,7 +1,25 @@
 <script setup lang="ts">
+import { onBeforeMount, ref } from 'vue';
 import HousingForm from '../components/HousingForm.vue';
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
+import { House } from '../types';
+const route = useRoute();
 const router = useRouter();
+
+const house = ref(null as unknown as House);
+onBeforeMount(() => {
+	console.log(route.params.id);
+	const id = route.params.id;
+	fetch(`/api/${id}`, {
+		headers: {
+			'X-Api-Key': import.meta.env.VITE_API_KEY
+		}
+	}).then((res) => {
+		res.json().then((jsonData) => {
+			house.value = jsonData;
+		});
+	});
+});
 
 async function handleSubmit(data: unknown) {
 	const payload = {
@@ -44,7 +62,22 @@ async function handleSubmit(data: unknown) {
 }
 </script>
 <template>
-  <HousingForm @submit="handleSubmit" />
+  <HousingForm
+    :addition="house.location.street"
+    :bathrooms="house.rooms.bathrooms"
+    :bedrooms="house.rooms.bedrooms"
+    :city="house.location.city"
+    :construction-date="house.constructionYear"
+    :description="house.description"
+    :garage="house.hasGarage"
+    :house-number="house.location.city"
+    :image="house.image"
+    :price="house.price"
+    :postal-code="house.location.zip"
+    :size="house.size"
+    :street-name="house.location.street"
+    @submit="handleSubmit"
+  />
 </template>
   <style lang="scss" scoped>
 </style>

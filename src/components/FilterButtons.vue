@@ -15,25 +15,24 @@ defineProps({
 </script>
 
 <template>
-<div>
+  <div>
     <button 
-    v-on:click="setSelected('price')"
-    :disabled="selected === 'price'"
-    class="contained-primary button"
-    :class="selected !== 'price' ? 'grey' : ''"
+      :disabled="selected === 'price'"
+      class="contained-primary button"
+      :class="selected !== 'price' ? 'grey' : ''"
+      @click="setSelected('price')"
     >
-    Price
+      Price
     </button>
     <button
-    v-on:click="setSelected('size')"
-    :disabled="selected === 'size'"
-    class="contained-primary button"
-    :class="selected !== 'size' ? 'grey' : ''"
+      :disabled="selected === 'size'"
+      class="contained-primary button"
+      :class="selected !== 'size' ? 'grey' : ''"
+      @click="setSelected('size')"
     >
-    Size
+      Size
     </button>
-</div>
-
+  </div>
 </template>
 <style scoped lang="scss">
 button{
